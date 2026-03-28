@@ -1,0 +1,29 @@
+{
+    "database": {
+        "type": "sqlite",
+        "name": "jarvis_data.db",
+        "path": "data/jarvis_data.db"
+    },
+    "tables": {
+        "usage_stats": {
+            "columns": ["id INTEGER PRIMARY KEY", "timestamp TEXT", "action_type TEXT", "model_used TEXT", "duration_ms INTEGER", "success INTEGER"],
+            "indexes": ["timestamp", "action_type"]
+        },
+        "conversation_history": {
+            "columns": ["id INTEGER PRIMARY KEY", "timestamp TEXT", "user_message TEXT", "ai_response TEXT", "model TEXT", "tokens_used INTEGER"],
+            "indexes": ["timestamp"]
+        },
+        "scheduled_tasks": {
+            "columns": ["id INTEGER PRIMARY KEY", "name TEXT", "action TEXT", "schedule TEXT", "last_run TEXT", "next_run TEXT", "enabled INTEGER", "created_at TEXT"],
+            "indexes": ["next_run", "enabled"]
+        },
+        "favorites": {
+            "columns": ["id INTEGER PRIMARY KEY", "command TEXT UNIQUE", "description TEXT", "usage_count INTEGER", "last_used TEXT", "created_at TEXT"],
+            "indexes": ["usage_count"]
+        },
+        "projects": {
+            "columns": ["id INTEGER PRIMARY KEY", "name TEXT", "path TEXT UNIQUE", "description TEXT", "context_summary TEXT", "created_at TEXT", "last_accessed TEXT"],
+            "indexes": ["last_accessed"]
+        }
+    }
+}

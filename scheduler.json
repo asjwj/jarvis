@@ -1,0 +1,9 @@
+{
+    "scheduled_tasks": [],
+    "settings": {
+        "enabled": true,
+        "check_interval_seconds": 30,
+        "notification_enabled": true,
+        "sound_enabled": true
+    }
+}
